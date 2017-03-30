@@ -42,5 +42,46 @@ btnRight.onclick = () => {
     carousel.style.transitionDuration = ".2s";
     carouselShift += slideWidth;
   }
-}
+};
 
+btnLeft.onclick = () => {
+  let prevInd;
+  counter--;
+  slideCounter--;
+  let slideIndexL = counter % numberOfSlides;
+  let active = document.querySelector(".active");
+  let imgInd = slideIndexL;
+  if (slideCounter < 0) {
+    slideIndexL = Math.abs(slideIndexL);
+    if (slideIndexL === 2) {
+      prevInd = 2;
+      imgInd = 1;
+    }
+    if (slideIndexL === 1) {
+      prevInd = 0;
+      imgInd = 2;
+    }
+    if (slideIndexL === 0) {
+      prevInd = 1;
+      imgInd = 0;
+    }
+    carousel.firstElementChild.nextElementSibling.innerHTML = `<img src="${img[prevInd]}">`;
+    carousel.firstElementChild.innerHTML = `<img src="${img[imgInd]}">`;
+    carousel.style.transform = `translateX(${slideWidth - 748 * 2}px)`;
+    carousel.style.transitionDuration = "";
+
+    setTimeout(
+      function() {
+        carousel.style.transform = `translateX(${slideWidth - 748}px)`;
+        carousel.style.transitionDuration = ".2s";
+      },
+      0
+    );
+    slideCounter++;
+    return;
+  } else {
+    carouselShift -= slideWidth;
+    carousel.style.transform = `translateX(-${carouselShift - slideWidth}px)`;
+    carousel.style.transitionDuration = ".2s";
+  }
+};
