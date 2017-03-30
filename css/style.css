@@ -9,14 +9,25 @@
     margin: 0;
     padding: 0;
   }
-  main {
+  header {
     padding-top:80px;
-    max-width: 748px;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
-    height:400px;
+    
   }
+  main {
+    margin: 0 auto;
+    max-width: 748px;
+    height:450px;
+  }
+  .control {
+    padding: 0;
+    width: 605px;
+    position: relative;
+    height:100px;
+  }
+
   .carousel  {
     list-style: none;
     position: relative;
@@ -34,15 +45,14 @@
     width: 748px;    
   }
  .left{
-     float:left;     
+     float:left;
  }
   .right {
     float:right;
   }
   .pagination{
-     
       float:left;
-       margin-left:300px;  
+      margin-left: 230px; 
   }
   .pagination li{
 display:inline-block;
